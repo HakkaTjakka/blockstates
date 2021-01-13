@@ -84,7 +84,8 @@ struct block_list
     bool operator < (const block_list &B) const
     {
         if (ID != B.ID)
-            return ID > B.ID;
+            return ID < B.ID;
+//            return ID > B.ID; //sort reversed -> 0 on bottom
         return DataValue < B.DataValue;
     }
 };
