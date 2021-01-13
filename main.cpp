@@ -90,6 +90,15 @@ struct block_list
     }
 };
 
+struct IdDataColor_list {
+    unsigned char r;
+    unsigned char g;
+    unsigned char b;
+    std::string texture_name;
+};
+
+std::map<int, struct IdDataColor_list> IdDataColor_map;
+
 void blockstates()
 {
     FILE* names;
@@ -173,6 +182,8 @@ void blockstates()
 
     std::map<std::string, int> model_variants_map;
     std::map<std::string, int>::iterator it;
+
+    std::map<std::string, int> block_filenames_map;
 
     for (it_names_list = names_list.begin(); it_names_list != names_list.end(); it_names_list++)
     {
@@ -319,6 +330,16 @@ void blockstates()
                                         //                                printf("\t\t variant=%s\t\tFILENAME=%s\n",variant,block_filename);
 
 
+                                        it = block_filenames_map.find(block_filename);
+                                        if ( it != block_filenames_map.end() )
+                                        {
+                                            it->second++;
+                                        }
+                                        else
+                                        {
+                                            block_filenames_map.insert(std::make_pair(block_filename,1));
+                                        }
+
                                         std::map<std::string, struct model_list>::iterator it_variant;
                                         it_variant = it_names_list->variant.find(variant);
                                         if ( it_variant == it_names_list->variant.end() )
@@ -376,7 +397,6 @@ void blockstates()
 
     std::map<std::string, struct json_list> json_texture_map;
     std::map<std::string, int> texture_types_map;
-    std::map<std::string, int> block_filenames_map;
 
     dr2 = opendir("minecraft/block"); // models/block...
 //    struct dirent *de2;
@@ -470,16 +490,18 @@ void blockstates()
                                         texture_types_map.insert(std::make_pair(kind,1));
                                     }
 
-                                    it = block_filenames_map.find(std::string()+block_filename);
+//jojo
+/*
+                                    it = block_filenames_map.find(block_filename);
                                     if ( it != block_filenames_map.end() )
                                     {
                                         it->second++;
                                     }
                                     else
                                     {
-                                        block_filenames_map.insert(std::make_pair(std::string()+block_filename,1));
+                                        block_filenames_map.insert(std::make_pair(block_filename,1));
                                     }
-
+*/
                                     one_json.texture_kind.push_back(std::string()+kind);
                                     one_json.texture_block.push_back(std::string()+block_filename);
 
@@ -535,7 +557,8 @@ void blockstates()
 
 
     std::map<std::string, struct json_list>::iterator it_json_texture_map;
-
+    IdDataColor_map.clear();
+    FILE* best_colors=fopen("best_colors.txt","w");
     for (it_names_list = names_list.begin(); it_names_list != names_list.end(); it_names_list++)
     {
         std::string blockstates_filename="minecraft/blockstates/" + it_names_list->Item + ".json";
@@ -576,18 +599,40 @@ void blockstates()
             }
         }
         std::map<std::string, struct model_list>::iterator it_variant;
+        int variant_weight=0;
+
+        std::string best_variant="";
+        std::string best_type="";
+        int best_tot=0;
+        std::string best_texture="";
         for (it_variant = it_names_list->variant.begin(); it_variant != it_names_list->variant.end(); it_variant++)
         {
-            printf("\t \"VARIANT='%s'\"\n",it_variant->first.c_str());
+            std::string variant=it_variant->first;
+            if (variant=="normal")                                  { variant_weight=9; }
+            else if (variant=="facing=up"   && variant_weight<8)    { variant_weight=8; }
+            else if (variant=="snowy=false" && variant_weight<7)    { variant_weight=7; }
+            else if (variant=="axis=none"   && variant_weight<6)    { variant_weight=6; }
+            else if (variant=="half=top"    && variant_weight<5)    { variant_weight=5; }
+            else if (variant=="cross"       && variant_weight<4)    { variant_weight=4; }
+
+            int type_weight=0;
+
+            printf("\t VARIANT=\"%s\"\n",variant.c_str());
             std::map<std::string, int>::iterator it_model_list;
             for (it_model_list = it_variant->second.models.begin(); it_model_list != it_variant->second.models.end(); it_model_list++)
             {
-                printf("\t\t MODEL=\"minecraft/block/%s.json\" (%dx)",it_model_list->first.c_str(),it_model_list->second);
+                printf("\t MODEL=\"minecraft/block/%s.json\" (%dx)",it_model_list->first.c_str(),it_model_list->second);
 
                 it_json_texture_map = json_texture_map.find(it_model_list->first);
                 if ( it_json_texture_map != json_texture_map.end() )
                 {
-                    printf(" found\n");
+                    printf(" found ");
+                    it = block_filenames_map.find(it_model_list->first);
+                    if ( it != block_filenames_map.end() ) {
+                        printf("(Tot %dx)",it->second);
+                    }
+                    printf(" \n");
+
                     size_t text_len=it_json_texture_map->second.texture_kind.size();
                     for (size_t n=0; n<text_len; n++)
                     {
@@ -595,8 +640,26 @@ void blockstates()
                         std::string kind;
                         kind = it_json_texture_map->second.texture_kind[n];
                         block_filename = it_json_texture_map->second.texture_block[n];
-                        printf("\t\t\t TEXTURE=\"minecraft/blocks/%s.png\"",block_filename.c_str());
-                        printf(" (TYPE='%s')",kind.c_str());
+
+                        if (kind=="all") type_weight=9;
+                        else if (kind=="top"     && type_weight<8) { type_weight=8; }
+                        else if (kind=="up"      && type_weight<7) { type_weight=7; }
+                        else if (kind=="end"     && type_weight<6) { type_weight=6; }
+                        else if (kind=="overlay" && type_weight<5) { type_weight=5; }
+                        else if (kind=="texture" && type_weight<4) { type_weight=4; }
+                        else if (kind=="cross"   && type_weight<3) { type_weight=3; }
+
+                        if (variant_weight + type_weight > best_tot) {
+                            best_tot=variant_weight + type_weight;
+                            best_variant=variant;
+                            best_type=kind;
+                            best_texture=block_filename;
+                        }
+
+                        int t=strlen(kind.c_str());
+                        printf("\t\t (TYPE=\"%s\")",kind.c_str());
+                        for (int i=0; i<15-t; i++) putchar(' ');
+                        printf(" TEXTURE=\"minecraft/blocks/%s.png\"",block_filename.c_str());
                         it_texture_block_map=texture_block_map.find(block_filename);
                         if ( it_texture_block_map != texture_block_map.end() )
                         {
@@ -612,7 +675,17 @@ void blockstates()
             }
         }
         printf("\n");
+        fprintf(best_colors,"ID=\"%d\",DataValue=\"%d\",Item=\"%s\",Description=\"%s\",IDName=\"%s\",VARIANT=\"%s\",TYPE=\"%s\",TEXTURE=\"%s.png\"\n",
+                it_names_list->ID,it_names_list->DataValue,it_names_list->Item.c_str(),it_names_list->Description.c_str(),it_names_list->IDName.c_str(),
+                best_variant.c_str(), best_type.c_str(),best_texture.c_str());
+
+        struct IdDataColor_list one_IdDataColor;
+        one_IdDataColor.texture_name=best_texture;
+        IdDataColor_map.insert( std::make_pair(it_names_list->ID*16+it_names_list->DataValue,one_IdDataColor) );
     }
+
+    fclose(best_colors);
+
     printf("USED MODELS:\n");
     for (it = block_filenames_map.begin(); it != block_filenames_map.end(); it++)
     {
@@ -641,5 +714,4 @@ void blockstates()
     }
     printf("\n");
     printf("#include <stdio.h> first\n");
-
 }
