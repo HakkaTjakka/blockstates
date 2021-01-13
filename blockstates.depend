@@ -1,0 +1,286 @@
+# depslib dependency file v1.0
+1610516691 source:d:\blockstates\main.cpp
+	<stdio.h>
+	<map>
+	<string>
+	<dirent.h>
+	<vector>
+	<algorithm>
+	<vector>
+	<sys/stat.h>
+
+1610501024 source:d:\blockstates\winapi.cpp
+	<winsock2.h>
+	<io.h>
+	<stdio.h>
+	<stdlib.h>
+	<math.h>
+	<time.h>
+	<sys/stat.h>
+	<iostream>
+	<cstdlib>
+	<Windows.h>
+	<Winuser.h>
+	<assert.h>
+	<vector>
+	<cmath>
+	<time.h>
+	<dirent.h>
+	<wchar.h>
+	<locale.h>
+	<iostream>
+
+1582634740 d:\blockstates\sfml\system.hpp
+	<SFML/Config.hpp>
+	<SFML/System/Clock.hpp>
+	<SFML/System/Err.hpp>
+	<SFML/System/FileInputStream.hpp>
+	<SFML/System/InputStream.hpp>
+	<SFML/System/Lock.hpp>
+	<SFML/System/MemoryInputStream.hpp>
+	<SFML/System/Mutex.hpp>
+	<SFML/System/NonCopyable.hpp>
+	<SFML/System/Sleep.hpp>
+	<SFML/System/String.hpp>
+	<SFML/System/Thread.hpp>
+	<SFML/System/ThreadLocal.hpp>
+	<SFML/System/ThreadLocalPtr.hpp>
+	<SFML/System/Time.hpp>
+	<SFML/System/Utf.hpp>
+	<SFML/System/Vector2.hpp>
+	<SFML/System/Vector3.hpp>
+
+1582634738 d:\blockstates\include\sfml\config.hpp
+	"TargetConditionals.h"
+
+1582634740 d:\blockstates\include\sfml\system\clock.hpp
+	<SFML/System/Export.hpp>
+	<SFML/System/Time.hpp>
+
+1582634740 d:\blockstates\include\sfml\system\export.hpp
+	<SFML/Config.hpp>
+
+1582634740 d:\blockstates\include\sfml\system\time.hpp
+	<SFML/System/Export.hpp>
+
+1582634740 d:\blockstates\include\sfml\system\err.hpp
+	<SFML/System/Export.hpp>
+	<ostream>
+
+1582634740 d:\blockstates\include\sfml\system\fileinputstream.hpp
+	<SFML/Config.hpp>
+	<SFML/System/Export.hpp>
+	<SFML/System/InputStream.hpp>
+	<SFML/System/NonCopyable.hpp>
+	<cstdio>
+	<string>
+
+1582634740 d:\blockstates\include\sfml\system\inputstream.hpp
+	<SFML/Config.hpp>
+	<SFML/System/Export.hpp>
+
+1582634740 d:\blockstates\include\sfml\system\noncopyable.hpp
+	<SFML/System/Export.hpp>
+
+1582634740 d:\blockstates\include\sfml\system\lock.hpp
+	<SFML/System/Export.hpp>
+	<SFML/System/NonCopyable.hpp>
+
+1582634740 d:\blockstates\include\sfml\system\memoryinputstream.hpp
+	<SFML/Config.hpp>
+	<SFML/System/InputStream.hpp>
+	<SFML/System/Export.hpp>
+	<cstdlib>
+
+1582634740 d:\blockstates\include\sfml\system\mutex.hpp
+	<SFML/System/Export.hpp>
+	<SFML/System/NonCopyable.hpp>
+
+1582634740 d:\blockstates\include\sfml\system\sleep.hpp
+	<SFML/System/Export.hpp>
+	<SFML/System/Time.hpp>
+
+1582634740 d:\blockstates\include\sfml\system\string.hpp
+	<SFML/System/Export.hpp>
+	<SFML/System/Utf.hpp>
+	<iterator>
+	<locale>
+	<string>
+	<SFML/System/String.inl>
+
+1582634740 d:\blockstates\include\sfml\system\utf.hpp
+	<SFML/Config.hpp>
+	<algorithm>
+	<locale>
+	<string>
+	<cstdlib>
+	<SFML/System/Utf.inl>
+
+1582634740 d:\blockstates\include\sfml\system\utf.inl
+
+1582634740 d:\blockstates\include\sfml\system\string.inl
+
+1582634740 d:\blockstates\include\sfml\system\thread.hpp
+	<SFML/System/Export.hpp>
+	<SFML/System/NonCopyable.hpp>
+	<cstdlib>
+	<SFML/System/Thread.inl>
+
+1582634740 d:\blockstates\include\sfml\system\thread.inl
+
+1582634740 d:\blockstates\include\sfml\system\threadlocal.hpp
+	<SFML/System/Export.hpp>
+	<SFML/System/NonCopyable.hpp>
+	<cstdlib>
+
+1582634740 d:\blockstates\include\sfml\system\threadlocalptr.hpp
+	<SFML/System/ThreadLocal.hpp>
+	<SFML/System/ThreadLocalPtr.inl>
+
+1582634740 d:\blockstates\include\sfml\system\threadlocalptr.inl
+
+1582634740 d:\blockstates\include\sfml\system\vector2.hpp
+	<SFML/System/Vector2.inl>
+
+1582634740 d:\blockstates\include\sfml\system\vector2.inl
+
+1582634740 d:\blockstates\include\sfml\system\vector3.hpp
+	<SFML/System/Vector3.inl>
+
+1582634740 d:\blockstates\include\sfml\system\vector3.inl
+
+1610510020 source:d:\blockstates_old\main.cpp
+	<stdio.h>
+	<map>
+	<string>
+	<dirent.h>
+	<vector>
+	<algorithm>
+	<vector>
+	<sys/stat.h>
+
+1582634778 d:\blockstates_old\stdafx.h
+	"targetver.h"
+	<stdio.h>
+
+1610509536 d:\blockstates_old\targetver.h
+
+1582634740 d:\blockstates_old\sfml\system.hpp
+	<SFML/Config.hpp>
+	<SFML/System/Clock.hpp>
+	<SFML/System/Err.hpp>
+	<SFML/System/FileInputStream.hpp>
+	<SFML/System/InputStream.hpp>
+	<SFML/System/Lock.hpp>
+	<SFML/System/MemoryInputStream.hpp>
+	<SFML/System/Mutex.hpp>
+	<SFML/System/NonCopyable.hpp>
+	<SFML/System/Sleep.hpp>
+	<SFML/System/String.hpp>
+	<SFML/System/Thread.hpp>
+	<SFML/System/ThreadLocal.hpp>
+	<SFML/System/ThreadLocalPtr.hpp>
+	<SFML/System/Time.hpp>
+	<SFML/System/Utf.hpp>
+	<SFML/System/Vector2.hpp>
+	<SFML/System/Vector3.hpp>
+
+1582634738 d:\blockstates_old\include\sfml\config.hpp
+	"TargetConditionals.h"
+
+1582634740 d:\blockstates_old\include\sfml\system\clock.hpp
+	<SFML/System/Export.hpp>
+	<SFML/System/Time.hpp>
+
+1582634740 d:\blockstates_old\include\sfml\system\export.hpp
+	<SFML/Config.hpp>
+
+1582634740 d:\blockstates_old\include\sfml\system\time.hpp
+	<SFML/System/Export.hpp>
+
+1582634740 d:\blockstates_old\include\sfml\system\err.hpp
+	<SFML/System/Export.hpp>
+	<ostream>
+
+1582634740 d:\blockstates_old\include\sfml\system\fileinputstream.hpp
+	<SFML/Config.hpp>
+	<SFML/System/Export.hpp>
+	<SFML/System/InputStream.hpp>
+	<SFML/System/NonCopyable.hpp>
+	<cstdio>
+	<string>
+
+1582634740 d:\blockstates_old\include\sfml\system\inputstream.hpp
+	<SFML/Config.hpp>
+	<SFML/System/Export.hpp>
+
+1582634740 d:\blockstates_old\include\sfml\system\noncopyable.hpp
+	<SFML/System/Export.hpp>
+
+1582634740 d:\blockstates_old\include\sfml\system\lock.hpp
+	<SFML/System/Export.hpp>
+	<SFML/System/NonCopyable.hpp>
+
+1582634740 d:\blockstates_old\include\sfml\system\memoryinputstream.hpp
+	<SFML/Config.hpp>
+	<SFML/System/InputStream.hpp>
+	<SFML/System/Export.hpp>
+	<cstdlib>
+
+1582634740 d:\blockstates_old\include\sfml\system\mutex.hpp
+	<SFML/System/Export.hpp>
+	<SFML/System/NonCopyable.hpp>
+
+1582634740 d:\blockstates_old\include\sfml\system\sleep.hpp
+	<SFML/System/Export.hpp>
+	<SFML/System/Time.hpp>
+
+1582634740 d:\blockstates_old\include\sfml\system\string.hpp
+	<SFML/System/Export.hpp>
+	<SFML/System/Utf.hpp>
+	<iterator>
+	<locale>
+	<string>
+	<SFML/System/String.inl>
+
+1582634740 d:\blockstates_old\include\sfml\system\utf.hpp
+	<SFML/Config.hpp>
+	<algorithm>
+	<locale>
+	<string>
+	<cstdlib>
+	<SFML/System/Utf.inl>
+
+1582634740 d:\blockstates_old\include\sfml\system\utf.inl
+
+1582634740 d:\blockstates_old\include\sfml\system\string.inl
+
+1582634740 d:\blockstates_old\include\sfml\system\thread.hpp
+	<SFML/System/Export.hpp>
+	<SFML/System/NonCopyable.hpp>
+	<cstdlib>
+	<SFML/System/Thread.inl>
+
+1582634740 d:\blockstates_old\include\sfml\system\thread.inl
+
+1582634740 d:\blockstates_old\include\sfml\system\threadlocal.hpp
+	<SFML/System/Export.hpp>
+	<SFML/System/NonCopyable.hpp>
+	<cstdlib>
+
+1582634740 d:\blockstates_old\include\sfml\system\threadlocalptr.hpp
+	<SFML/System/ThreadLocal.hpp>
+	<SFML/System/ThreadLocalPtr.inl>
+
+1582634740 d:\blockstates_old\include\sfml\system\threadlocalptr.inl
+
+1582634740 d:\blockstates_old\include\sfml\system\vector2.hpp
+	<SFML/System/Vector2.inl>
+
+1582634740 d:\blockstates_old\include\sfml\system\vector2.inl
+
+1582634740 d:\blockstates_old\include\sfml\system\vector3.hpp
+	<SFML/System/Vector3.inl>
+
+1582634740 d:\blockstates_old\include\sfml\system\vector3.inl
+
