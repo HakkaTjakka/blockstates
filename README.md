@@ -25,5 +25,7 @@ These, with a (again) .json extension are looked up in the block dir. (2)
 
 From this file the names of textures used are retrieved that are placed in the blocks (+'s'!)
 
+Whole proces takes less then one second on average computer.
+
 Thank you pacman!
 
