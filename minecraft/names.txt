@@ -186,6 +186,7 @@
 "jungle slab","Jungle Wooden Slab","(minecraft:wooden_slab)","126","3"
 "acacia slab","Acacia Wooden Slab","(minecraft:wooden_slab)","126","4"
 "dark oak slab","Dark Oak Wooden Slab","(minecraft:wooden_slab)","126","5"
+"cocoa","Cocoa","(minecraft:cocoa)","127","0"
 "sandstone stairs","Sandstone Stairs","(minecraft:sandstone_stairs)","128","0"
 "emerald ore","Emerald Ore","(minecraft:emerald_ore)","129","0"
 "ender chest","Ender Chest","(minecraft:ender_chest)","130","0"
